@@ -11,7 +11,9 @@
 
 ## Project Overview
 This project designs and implements a relational database for managing college clubs, events, memberships, and attendance.  
+
 It includes:
+### Project Proposal
 
 ### Part A
 - ER Diagram development (Task A)
