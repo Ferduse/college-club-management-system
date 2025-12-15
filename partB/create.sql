@@ -22,9 +22,9 @@ CREATE TABLE Clubs (
 -- MEMBERS TABLE
 CREATE TABLE Members (
     student_id INT PRIMARY KEY,
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(120) UNIQUE NOT NULL
 );
 
 -- CLUB EVENTS TABLE
@@ -43,7 +43,7 @@ CREATE TABLE Club_Events (
 CREATE TABLE Club_Membership (
     club_id INT NOT NULL,
     student_id INT NOT NULL,
-    role VARCHAR(255) DEFAULT 'Member' NOT NULL,
+    role VARCHAR(50) DEFAULT 'Member' NOT NULL,
     PRIMARY KEY (club_id, student_id),
     CONSTRAINT fk_clubmem_club
         FOREIGN KEY (club_id)
