@@ -11,7 +11,8 @@ INSERT INTO Categories (category_id, name) VALUES
 (5, 'Technology'),
 (6, 'Cultural'),
 (7, 'Business'),
-(8, 'Health & Wellness');
+(8, 'Health & Wellness'),
+(9, 'Religion');
 
 -- 2) CLUBS
 INSERT INTO Clubs (club_id, club_name, category_id, budget) VALUES
@@ -28,7 +29,13 @@ INSERT INTO Clubs (club_id, club_name, category_id, budget) VALUES
 (11, 'Volunteer Corps',          4, 2000),
 (12, 'Entrepreneurship Club',    7, 2800),
 (13, 'Cultural Exchange Club',   6, 1700),
-(14, 'Fitness & Wellness Club',  8, 2100);
+(14, 'Fitness & Wellness Club',  8, 2100),
+(15, 'Cybersecurity Club',       5, 3000),
+(16, 'Muslim Students Association', 9, 3200),
+(17, 'Music Club',                2, 2000),
+(18, 'Environmental Awareness Club', 4, 1800),
+(19, 'Fashion Marketing Club',     7, 2600),
+(20, 'Mental Health Club',   8, 1900);
 
 -- 3) MEMBERS (STUDENTS)
 INSERT INTO Members (student_id, first_name, last_name, email) VALUES
@@ -66,7 +73,17 @@ INSERT INTO Members (student_id, first_name, last_name, email) VALUES
 (1032, 'Joseph',    'Scott',     'joseph.scott@school.edu'),
 (1033, 'Victoria',  'Green',     'victoria.green@school.edu'),
 (1034, 'Samuel',    'Adams',     'samuel.adams@school.edu'),
-(1035, 'Zoey',      'Baker',     'zoey.baker@school.edu');
+(1035, 'Zoey',      'Baker',     'zoey.baker@school.edu'),
+(1036, 'Nathan',   'Perez',      'nathan.perez@school.edu'),
+(1037, 'Lily',     'Turner',     'lily.turner@school.edu'),
+(1038, 'Owen',     'Collins',    'owen.collins@school.edu'),
+(1039, 'Hannah',   'Stewart',    'hannah.stewart@school.edu'),
+(1040, 'Isaac',    'Morris',     'isaac.morris@school.edu'),
+(1041, 'Madison',  'Rogers',     'madison.rogers@school.edu'),
+(1042, 'Caleb',    'Reed',       'caleb.reed@school.edu'),
+(1043, 'Natalie',  'Cook',       'natalie.cook@school.edu'),
+(1044, 'Ryan',     'Morgan',     'ryan.morgan@school.edu'),
+(1045, 'Sofia',    'Bell',       'sofia.bell@school.edu');
 
 -- 4) CLUB EVENTS
 INSERT INTO Club_Events (event_id, club_id, event_name, location, event_date) VALUES
@@ -97,7 +114,20 @@ INSERT INTO Club_Events (event_id, club_id, event_name, location, event_date) VA
 (25, 13, 'International Potluck',          'Student Union 1C',    '2025-02-27'),
 (26, 13, 'Language Exchange Hour',         'Student Union 1C',    '2025-03-13'),
 (27, 14, 'Yoga for Beginners',             'Wellness Studio',     '2025-02-11'),
-(28, 14, 'Stress Management Workshop',     'Wellness Studio',     '2025-03-19');
+(28, 14, 'Stress Management Workshop',     'Wellness Studio',     '2025-03-19'),
+(29, 15, 'Intro to Ethical Hacking',       'Tech Hall 202', '2025-04-02'),
+(30, 15, 'CTF Competition Night',          'Tech Hall 202', '2025-04-16'),
+(31, 16, 'Welcome & Community Gathering',  'Student Center', '2025-04-05'),
+(32, 16, 'Meet the Board Night',           'Student Center', '2025-04-19'),
+(33, 17, 'Spring Concert Rehearsal',       'Music Hall',   '2025-04-10'),
+(34, 17, 'End of Semester Concert',        'Auditorium',   '2025-04-28'),
+(35, 18, 'Campus Sustainability Talk',     'Green Center', '2025-04-08'),
+(36, 18, 'Tree Planting Day',              'North Lawn',   '2025-04-22'),
+(37, 19, 'Branding Workshop',              'Buis Hall 110', '2025-04-12'),
+(38, 19, 'Social Media Marketing Strategy',    'Buis Hall 110', '2025-04-26'),
+(39, 20, 'Intro to Meditation',            'Wellness Room','2025-04-07'),
+(40, 20, 'Burnout Prevention Seminar',     'Wellness Room','2025-04-21');
+
 
 -- 5) CLUB MEMBERSHIP (many-to-many)
 -- NOTE: role defaults to 'Member' if omitted, but we include a mix.
@@ -175,7 +205,33 @@ INSERT INTO Club_Membership (club_id, student_id, role) VALUES
 (14, 1015, 'President'),
 (14, 1019, 'Member'),
 (14, 1027, 'Member'),
-(14, 1029, 'Member');
+(14, 1029, 'Member'),
+
+(15, 1036, 'President'),
+(15, 1038, 'Member'),
+(15, 1040, 'Member'),
+(15, 1002, 'Member'),
+
+(16, 1037, 'President'),
+(16, 1041, 'Member'),
+(16, 1018, 'Member'),
+(16, 1026, 'Member'),
+
+(17, 1039, 'President'),
+(17, 1043, 'Member'),
+(17, 1025, 'Member'),
+
+(18, 1042, 'President'),
+(18, 1027, 'Member'),
+(18, 1017, 'Member'),
+
+(19, 1044, 'President'),
+(19, 1016, 'Member'),
+(19, 1030, 'Member'),
+
+(20, 1045, 'President'),
+(20, 1019, 'Member'),
+(20, 1029, 'Member');
 
 -- 6) EVENT ATTENDANCE (many-to-many)
 -- Record which students attended which events
@@ -205,7 +261,7 @@ INSERT INTO Event_Attendance (student_id, event_id) VALUES
 (1009, 8), (1013, 8), (1019, 8), (1023, 8),
 
 -- Event 9: Debate Tryouts (Club 5)
-(1016, 9), (1020, 9), (1024, 9), (1030, 9),
+(1016, 9), (1024, 9), (1030, 9),
 
 -- Event 10: Public Speaking Workshop (Club 5)
 (1016, 10), (1024, 10), (1030, 10), (1004, 10), (1017, 10),
@@ -247,10 +303,10 @@ INSERT INTO Event_Attendance (student_id, event_id) VALUES
 (1017, 22), (1021, 22), (1027, 22), (1031, 22), (1035, 22),
 
 -- Event 23: Startup Ideas Meetup (Club 12)
-(1012, 23), (1016, 23), (1026, 23), (1033, 23), (1002, 23),
+(1012, 23), (1016, 23), (1026, 23), (1033, 23), (1002, 23), (1017, 23),
 
 -- Event 24: Pitch Practice Night (Club 12)
-(1012, 24), (1026, 24), (1033, 24), (1007, 24),
+(1012, 24), (1026, 24), (1033, 24), (1007, 24),(1024, 24),
 
 -- Event 25: International Potluck (Club 13)
 (1005, 25), (1011, 25), (1025, 25), (1035, 25), (1023, 25),
@@ -262,4 +318,40 @@ INSERT INTO Event_Attendance (student_id, event_id) VALUES
 (1015, 27), (1019, 27), (1027, 27), (1029, 27), (1004, 27),
 
 -- Event 28: Stress Management Workshop (Club 14)
-(1015, 28), (1019, 28), (1027, 28), (1029, 28), (1030, 28);
+(1015, 28), (1019, 28), (1027, 28), (1029, 28), (1030, 28),
+
+-- Event 29: Intro to Ethical Hacking (Club 15)
+(1036, 29), (1038, 29), (1040, 29), (1002, 29), (1016, 29), (1022, 29),
+
+-- Event 30: CTF Competition Night (Club 15)
+(1036, 30), (1038, 30), (1042, 30), (1004, 30)
+
+-- Event 31: Welcome & Community Gathering (Club 16)
+(1037, 31), (1041, 31), (1018, 31), (1026, 31), (1004, 31),
+
+-- Event 32: Meet the Board Night (Club 16)
+(1037, 32), (1018, 32), (1044, 32),
+
+-- Event 33: Spring Concert Rehearsal (Club 17)
+(1039, 33), (1043, 33), (1025, 33),
+
+-- Event 34: End of Semester Concert (Club 17)
+(1039, 34), (1043, 34), (1025, 34), (1005, 34),
+
+-- Event 35: Campus Sustainability Talk (Club 18)
+(1042, 35), (1027, 35), (1017, 35),(1025, 35),
+
+-- Event 36: Tree Planting Day (Club 18)
+(1042, 36), (1027, 36), (1035, 36),(1005, 36), (1003, 1),
+
+-- Event 37: Branding Workshop (Club 19)
+(1044, 37), (1016, 37), (1030, 37),(1002, 37),
+
+-- Event 38: Social Media Marketing Strategy (Club 19)
+(1044, 38), (1016, 38), (1007, 38),
+
+-- Event 39: Intro to Meditation (Club 20)
+(1045, 39), (1019, 39), (1029, 39), (1036, 39),(1040, 39),
+
+-- Event 40: Burnout Prevention Seminar (Club 20)
+(1045, 40), (1019, 40), (1029, 40), (1030, 40), (1040, 40);
