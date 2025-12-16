@@ -324,7 +324,7 @@ INSERT INTO Event_Attendance (student_id, event_id) VALUES
 (1036, 29), (1038, 29), (1040, 29), (1002, 29), (1016, 29), (1022, 29),
 
 -- Event 30: CTF Competition Night (Club 15)
-(1036, 30), (1038, 30), (1042, 30), (1004, 30)
+(1036, 30), (1038, 30), (1042, 30), (1004, 30),
 
 -- Event 31: Welcome & Community Gathering (Club 16)
 (1037, 31), (1041, 31), (1018, 31), (1026, 31), (1004, 31),
@@ -342,7 +342,7 @@ INSERT INTO Event_Attendance (student_id, event_id) VALUES
 (1042, 35), (1027, 35), (1017, 35),(1025, 35),
 
 -- Event 36: Tree Planting Day (Club 18)
-(1042, 36), (1027, 36), (1035, 36),(1005, 36), (1003, 1),
+(1042, 36), (1027, 36), (1035, 36),(1005, 36), (1003, 36),
 
 -- Event 37: Branding Workshop (Club 19)
 (1044, 37), (1016, 37), (1030, 37),(1002, 37),
